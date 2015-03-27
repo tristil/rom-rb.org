@@ -524,31 +524,6 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 
 <p>At this point, we have a much cleaner controller, the <code>status</code> concept is a fully formed part of our model, and the relation provides a cohesive API that encapsulates the dataset.</p>
 
-<h3 id="declarative-relations-in-controller-actions">Declarative Relations in Controller Actions</h3>
-
-<p>Many simple relations are accessed the same way in controllers. To tidy up the repetition of injecting relation results into actions, ROM Rails offers a class level controller hook for declaratively defining relation queries and required filter parameters:</p>
-<pre class="highlight ruby"><code><span class="c1"># app/controllers/tasks_controller.rb</span>
-
-<span class="k">class</span> <span class="nc">TasksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="n">rescue_from</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">RelationParamsMissingError</span> <span class="k">do</span>
-    <span class="n">head</span> <span class="ss">:bad_request</span>
-  <span class="k">end</span>
-
-  <span class="n">relation</span> <span class="s1">'tasks.index'</span><span class="p">,</span> <span class="ss">only: :index</span>
-  <span class="n">relation</span> <span class="s1">'tasks.by_status'</span><span class="p">,</span> <span class="ss">only: :filter</span><span class="p">,</span> <span class="ss">requires: :status</span>
-
-  <span class="k">def</span> <span class="nf">index</span>
-    <span class="n">render</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">filter</span>
-    <span class="n">render</span> <span class="ss">:index</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-
-<p>Note the <code>rescue_from</code> block here, which sends a bad request to the client if the required <code>status</code> parameter isn’t present in the request.</p>
-
 <h3 id="making-sense-of-relations-and-mappers">Making Sense of Relations and Mappers</h3>
 
 <p>In just a few lines of code, we’ve encountered a number of differences between the ROM Rails and an “omakase” Rails app with ActiveRecord:</p>

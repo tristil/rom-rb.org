@@ -168,12 +168,6 @@ bin/rails console
 
 <p>If you look inside these paths in the Rails app, you’ll see that the application template generated a <code>tasks.rb</code> file in each of these paths as well as a <code>*_create_tasks.rb</code> migration in <code>db/migrations</code>.</p>
 
-<p>Use the following methods to look up the registered task objects on the environment:</p>
-<pre class="highlight ruby"><code><span class="n">rom</span><span class="p">.</span><span class="nf">commands</span>
-<span class="n">rom</span><span class="p">.</span><span class="nf">mappers</span>
-<span class="n">rom</span><span class="p">.</span><span class="nf">relations</span>
-</code></pre>
-
 <h3 id="get-the-list-of-tasks">Get the list of tasks</h3>
 
 <p>To retrieve all the tasks in the todo list, we get the relation from the registry and call <code>to_a</code> on it. This executes the query and returns an array of results:</p>
@@ -256,8 +250,6 @@ bin/rails console
 <pre class="highlight ruby"><code><span class="c1"># app/relations/tasks.rb</span>
 
 <span class="k">class</span> <span class="nc">Tasks</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:sql</span><span class="p">]</span>
-  <span class="n">dataset</span> <span class="ss">:tasks</span>
-
   <span class="k">def</span> <span class="nf">active</span>
     <span class="n">where</span><span class="p">(</span><span class="ss">is_completed: </span><span class="kp">false</span><span class="p">)</span>
   <span class="k">end</span>
@@ -267,8 +259,6 @@ bin/rails console
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-
-<p>Note that in Sequel, <code>filter</code> can be used as an alias for <code>where</code>. Use whatever style you prefer.</p>
 
 <p>To display the lists from this relation, we’ll need to make changes to the controller and view.</p>
 
@@ -339,8 +329,6 @@ bin/rails console
 <pre class="highlight ruby"><code><span class="c1"># app/relations/tasks.rb</span>
 
 <span class="k">class</span> <span class="nc">Tasks</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:sql</span><span class="p">]</span>
-  <span class="n">dataset</span> <span class="ss">:tasks</span>
-
   <span class="k">def</span> <span class="nf">index_view</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
     <span class="k">case</span> <span class="n">status</span>
     <span class="k">when</span> <span class="s1">'active'</span>
@@ -442,17 +430,13 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 <span class="k">end</span>
 </code></pre>
 
-<p>With our value object defined, we can simply instruct the task mapper to use it directly, providing the list of attributes we want to map:</p>
+<p>With our value object defined, we can simply instruct the task mapper to use it directly, providing the model class:</p>
 <pre class="highlight ruby"><code><span class="c1"># app/mappers/tasks.rb</span>
 
 <span class="k">class</span> <span class="nc">TaskMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">relation</span> <span class="ss">:tasks</span>
 
   <span class="n">model</span> <span class="no">Task</span>
-
-  <span class="n">attribute</span> <span class="ss">:id</span>
-  <span class="n">attribute</span> <span class="ss">:title</span>
-  <span class="n">attribute</span> <span class="ss">:is_completed</span>
 <span class="k">end</span>
 </code></pre>
 
@@ -592,7 +576,7 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
     <span class="n">set_model_name</span> <span class="s1">'Task'</span>
 
     <span class="n">attribute</span> <span class="ss">:title</span><span class="p">,</span> <span class="no">String</span>
-    <span class="n">attribute</span> <span class="ss">:is_completed</span><span class="p">,</span> <span class="no">Boolean</span>
+    <span class="n">attribute</span> <span class="ss">:is_completed</span><span class="p">,</span> <span class="no">Virtus</span><span class="o">::</span><span class="no">Attribute</span><span class="o">::</span><span class="no">Boolean</span>
   <span class="k">end</span>
 
   <span class="n">validations</span> <span class="k">do</span>
@@ -605,10 +589,14 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 
 <p>Notice that we also need to slot in references to the model and relation here, in order to connect this form to our existing ROM objects.</p>
 
-<p>In order to select and operate on individual objects, we also need to add a new method to the relation to access tasks by their given ID:</p>
+<p>In order to select and operate on individual objects, we also need to add a couple methods that access tasks by their ID:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Tasks</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:sql</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
     <span class="n">where</span><span class="p">(</span><span class="ss">id: </span><span class="nb">id</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">).</span><span class="nf">to_a</span><span class="p">.</span><span class="nf">first</span>
   <span class="k">end</span>
 
   <span class="c1"># ...</span>
@@ -646,11 +634,16 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 
-<p>The form for handling updates looks very similar to the form for creating new tasks:</p>
+<p>The form for handling updates looks very similar to the form for creating new tasks.  In this case, we just need to add a class method to load existing records into the form. Also note that the methods defined here use the finder methods we defined on the <code>Tasks</code> relation earlier.</p>
 <pre class="highlight ruby"><code><span class="c1"># app/forms/update_task_form.rb</span>
 
 <span class="k">class</span> <span class="nc">UpdateTaskForm</span> <span class="o">&lt;</span> <span class="no">TaskForm</span>
   <span class="n">commands</span> <span class="ss">tasks: :update</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">build_from_existing</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">rom</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:tasks</span><span class="p">).</span><span class="nf">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+  <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">commit!</span>
     <span class="n">tasks</span><span class="p">.</span><span class="nf">try</span> <span class="p">{</span> <span class="n">tasks</span><span class="p">.</span><span class="nf">update</span><span class="p">.</span><span class="nf">by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">).</span><span class="nf">set</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="p">}</span>
@@ -658,7 +651,7 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 <span class="k">end</span>
 </code></pre>
 
-<p>The main thing to pay attention to here is the <code>by_id</code> method used to select the task that’s being edited. To set this up according to Rails conventions, we’ll need an <code>edit.html.erb</code> template as well.</p>
+<p>To set up the edit functionality according to Rails conventions, we’ll need an <code>edit.html.erb</code> template as well.</p>
 
 <h3 id="managing-tasks-from-the-controller">Managing Tasks from the Controller</h3>
 
@@ -683,13 +676,13 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">edit</span>
-    <span class="n">task_form</span> <span class="o">=</span> <span class="no">UpdateTaskForm</span><span class="p">.</span><span class="nf">build</span><span class="p">({},</span> <span class="p">{</span> <span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="p">})</span>
+    <span class="n">task_form</span> <span class="o">=</span> <span class="no">UpdateTaskForm</span><span class="p">.</span><span class="nf">build_from_existing</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
 
     <span class="n">render</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">locals: </span><span class="p">{</span> <span class="ss">task: </span><span class="n">task_form</span> <span class="p">}</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">update</span>
-    <span class="n">task_form</span> <span class="o">=</span> <span class="no">UpdateTaskForm</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:user</span><span class="p">],</span> <span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]).</span><span class="nf">save</span>
+    <span class="n">task_form</span> <span class="o">=</span> <span class="no">UpdateTaskForm</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:task</span><span class="p">],</span> <span class="ss">id: </span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]).</span><span class="nf">save</span>
 
     <span class="k">if</span> <span class="n">task_form</span><span class="p">.</span><span class="nf">success?</span>
       <span class="n">redirect_to</span> <span class="ss">:tasks</span>
@@ -716,7 +709,7 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">tasks_command</span>
-    <span class="n">rom</span><span class="p">.</span><span class="nf">commands</span><span class="p">(</span><span class="ss">:tasks</span><span class="p">)</span>
+    <span class="n">rom</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:tasks</span><span class="p">)</span>
   <span class="k">end</span>
 
 <span class="k">end</span>

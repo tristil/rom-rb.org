@@ -36,7 +36,7 @@ adds new, great features on top of existing APIs.</p>
 <ul>
 <li><a href="https://github.com/rom-rb/rom-rethinkdb">rom-rethinkdb</a></li>
 <li><a href="https://github.com/rom-rb/rom-neo4j">rom-neo4j</a></li>
-<li><a href="https://github.com/rom-rb/rom-event_source">rom-event_source</a></li>
+<li><a href="https://github.com/rom-rb/rom-event_store">rom-event_store</a></li>
 <li><a href="https://github.com/rom-rb/rom-influxdb">rom-influxdb</a></li>
 </ul>
 

@@ -36,6 +36,7 @@ adds new, great features on top of existing APIs.</p>
 <ul>
 <li><a href="https://github.com/rom-rb/rom-rethinkdb">rom-rethinkdb</a></li>
 <li><a href="https://github.com/rom-rb/rom-neo4j">rom-neo4j</a></li>
+<li><a href="https://github.com/rom-rb/rom-event_source">rom-event_source</a></li>
 <li><a href="https://github.com/rom-rb/rom-influxdb">rom-influxdb</a></li>
 </ul>
 
@@ -176,12 +177,12 @@ adds new, great features on top of existing APIs.</p>
 
 <p>Ability to <code>unwrap</code> a nested hash:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
-  <span class="n">unwrap</span> <span class="ss">:address</span>
+  <span class="n">unwrap</span> <span class="ss">address: </span><span class="p">[</span><span class="ss">:street</span><span class="p">,</span> <span class="ss">:city</span><span class="p">]</span>
 <span class="k">end</span>
 
 <span class="n">mapper</span> <span class="o">=</span> <span class="no">UserMapper</span><span class="p">.</span><span class="nf">build</span>
 
-<span class="n">mapper</span><span class="p">.</span><span class="nf">call</span> <span class="p">[{</span> <span class="ss">name: </span><span class="s1">'Jane'</span><span class="p">,</span> <span class="ss">address: </span><span class="p">{</span> <span class="ss">street: </span><span class="s1">'Street 1'</span><span class="p">,</span> <span class="ss">city: </span><span class="s1">'NYC'</span> <span class="p">}]</span>
+<span class="n">mapper</span><span class="p">.</span><span class="nf">call</span> <span class="p">[{</span> <span class="ss">name: </span><span class="s1">'Jane'</span><span class="p">,</span> <span class="ss">address: </span><span class="p">{</span> <span class="ss">street: </span><span class="s1">'Street 1'</span><span class="p">,</span> <span class="ss">city: </span><span class="s1">'NYC'</span> <span class="p">}</span> <span class="p">}]</span>
 <span class="c1"># [{ :name =&gt; "Jane", :street =&gt; "Street 1", :city =&gt; "NYC" }]</span>
 </code></pre>
 

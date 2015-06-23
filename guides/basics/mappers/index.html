@@ -84,7 +84,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-2573270-5', 'auto');
-ga('send', 'pageview');</script></head><body class="guides guides_basics guides_basics_mappers guides_basics_mappers_index"><div class="page-wrapper"><header><nav class="navbar navbar-default navbar-static-top"><div class="navbar-inner"><div class="container"><a class="navbar-brand" href="/">Ruby Object Mapper</a><ul class="nav navbar-nav"><li class=""><a class="" href="/introduction">Introduction</a></li><li class=""><a class="" href="/guides">Guides</a></li><li class=""><a class="" href="/tutorials">Tutorials</a></li><li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">API Reference <span class='caret'/></a><ul class="dropdown-menu" role="menu"><li><a href="http://www.rubydoc.info/gems/rom">rom</a></li><li><a href="http://www.rubydoc.info/gems/rom-sql">rom-sql</a></li><li><a href="http://www.rubydoc.info/gems/rom-yesql">rom-yesql</a></li><li><a href="http://www.rubydoc.info/gems/rom-influxdb">rom-influxdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-event_store">rom-event_store</a></li><li><a href="http://www.rubydoc.info/gems/rom-rethinkdb">rom-rethinkdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-mongo">rom-mongo</a></li><li><a href="http://www.rubydoc.info/gems/rom-redis">rom-redis</a></li><li><a href="http://www.rubydoc.info/gems/rom-csv">rom-csv</a></li><li><a href="http://www.rubydoc.info/gems/rom-yaml">rom-yaml</a></li><li><a href="http://www.rubydoc.info/gems/rom-dm">rom-dm</a></li><li><a href="http://www.rubydoc.info/gems/rom-lotus">rom-lotus</a></li><li><a href="http://www.rubydoc.info/gems/rom-rails">rom-rails</a></li><li><a href="http://www.rubydoc.info/gems/rom-roda">rom-roda</a></li></ul></li><li class=""><a class="" href="/blog">Blog</a></li><li class=""><a class="" href="/contribute">Contribute</a></li><li class=""><a class="" href="/status">Status</a></li></ul></div></div></nav></header><div class="container"><div class="content"><div class="row"><div class="col-md-3"><ul class="nav nav-pills nav-stacked"><li class="nav-heading"><a class="nav-heading" href="/guides/basics/setup">Setup</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/relations">Relations</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/mappers">Mappers</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/commands">Commands</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/adapters">Adapters</a></li><li class=""><a class="" href="/guides/adapters/sql">SQL</a></li></ul></div><div class="col-md-9"><div class="page-article"><h1 id="mappers">Mappers</h1>
+ga('send', 'pageview');</script></head><body class="guides guides_basics guides_basics_mappers guides_basics_mappers_index"><div class="page-wrapper"><header><nav class="navbar navbar-default navbar-static-top"><div class="navbar-inner"><div class="container"><a class="navbar-brand" href="/">Ruby Object Mapper</a><ul class="nav navbar-nav"><li class=""><a class="" href="/introduction">Introduction</a></li><li class=""><a class="" href="/guides">Guides</a></li><li class=""><a class="" href="/tutorials">Tutorials</a></li><li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">API Reference <span class='caret'/></a><ul class="dropdown-menu" role="menu"><li><a href="http://www.rubydoc.info/gems/rom">rom</a></li><li><a href="http://www.rubydoc.info/gems/rom-sql">rom-sql</a></li><li><a href="http://www.rubydoc.info/gems/rom-yesql">rom-yesql</a></li><li><a href="http://www.rubydoc.info/gems/rom-influxdb">rom-influxdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-event_store">rom-event_store</a></li><li><a href="http://www.rubydoc.info/gems/rom-rethinkdb">rom-rethinkdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-mongo">rom-mongo</a></li><li><a href="http://www.rubydoc.info/gems/rom-redis">rom-redis</a></li><li><a href="http://www.rubydoc.info/gems/rom-csv">rom-csv</a></li><li><a href="http://www.rubydoc.info/gems/rom-yaml">rom-yaml</a></li><li><a href="http://www.rubydoc.info/gems/rom-dm">rom-dm</a></li><li><a href="http://www.rubydoc.info/gems/rom-lotus">rom-lotus</a></li><li><a href="http://www.rubydoc.info/gems/rom-rails">rom-rails</a></li><li><a href="http://www.rubydoc.info/gems/rom-roda">rom-roda</a></li></ul></li><li class=""><a class="" href="/blog">Blog</a></li><li class=""><a class="" href="/contribute">Contribute</a></li><li class=""><a class="" href="/status">Status</a></li></ul></div></div></nav></header><div class="container"><div class="content"><div class="row"><div class="col-md-3"><ul class="nav nav-pills nav-stacked"><li class="nav-heading"><a class="nav-heading" href="/guides/basics/setup">Setup</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/relations">Relations</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/mappers">Mappers</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/commands">Commands</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/adapters">Adapters</a></li><li class=""><a class="" href="/guides/adapters/how-to">How-to</a></li><li class=""><a class="" href="/guides/adapters/sql">SQL</a></li></ul></div><div class="col-md-9"><div class="page-article"><h1 id="mappers">Mappers</h1>
 
 <ul>
 <li><a href="#purpose">Purpose</a></li>
@@ -95,18 +95,16 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <li><a href="#lean-interface-to-domain">Lean Interface to Domain</a></li>
 <li><a href="#rich-interface-to-domain">Rich Interface to Domain</a></li>
 </ul></li>
-<li><a href="#defining-and-using-mappers">Defining Mappers</a>
+<li><a href="#defining-and-applying-mappers">Defining and Applying Mappers</a>
 
 <ul>
 <li><a href="#defining-a-mapper">Defining a Mapper</a></li>
 <li><a href="#data-transformations">Data Transformations</a></li>
-<li><a href="#applying-transformations-to-embedded-attributes">Applying Transformations to Embedded Attributes</a></li>
-<li><a href="#applying-transformations-step-by-step">Applying Transformations Step by Step</a></li>
+<li><a href="#applying-mappers">Applying Mappers</a></li>
 </ul></li>
-<li><a href="#applying-and-reusing-mappers">Applying and Reusing Mappers</a>
+<li><a href="#reusing-mappers">Reusing Mappers</a>
 
 <ul>
-<li><a href="#applying-mappers-to-relations">Applying Mappers to Relations</a></li>
 <li><a href="#chaining-mappers-to-pipeline">Chaining Mappers to Pipeline</a></li>
 <li><a href="#subclassing-mappers">Subclassing Mappers</a></li>
 <li><a href="#applying-mappers-to-nested-data">Applying Mappers to Nested Data</a></li>
@@ -116,27 +114,35 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 
 <h2 id="purpose">Purpose</h2>
 
-<p>Every application needs different representations of the same data. Taking data from one representation and converting it into another in ROM is done by using mappers.</p>
+<p>Every application needs different representations of the same data. Taking data
+from one representation and converting it into another in ROM is done by using
+mappers.</p>
 
-<p>A mapper is an object that takes a tuple and turns it into a domain object, or nested hash, compatible to the domain interface.</p>
+<p>A mapper is an object that takes a relation and turns it into a domain-specific
+collection which can include objects compatible with the domain interface. It can
+return plain hashes or instantiate domain-specific models for you.</p>
 
-<p>ROM provides a simple DSL to define mappers and these can be integrated with 3rd-party libraries.</p>
+<p>ROM provides a DSL to define mappers which can be integrated with 3rd-party
+libraries.</p>
 
 <p>Mapping is an extremely powerful concept. It can:</p>
 
 <ul>
-<li>Filter and rename attributes.</li>
-<li>Wrap and group attributes.</li>
-<li>Coerce values.</li>
-<li>Build aggregate objects.</li>
-<li>Build immutable value objects.</li>
+<li>Filter and rename attributes</li>
+<li>Wrap and group attributes</li>
+<li>Coerce values</li>
+<li>Build aggregate objects</li>
+<li>Build immutable value objects</li>
+<li>And more&hellip;</li>
 </ul>
 
-<p>ROM also allows you to define mappers that can be reused for many relations, or combined to create a pipeline.</p>
+<p>ROM also allows you to define mappers that can be reused for many relations, or
+combined to create a pipeline.</p>
 
 <h2 id="basic-usage">Basic Usage</h2>
 
-<p>Using a datastore, <a href="relations">relations</a> of raw data are extracted and presented in the form of tuples.</p>
+<p>With the adapter <a href="/guides/basics/relations">relations</a> raw data are extracted
+from datasets and presented in a form of tuples.</p>
 <pre class="highlight ruby"><code><span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span>
 <span class="n">users</span><span class="p">.</span><span class="nf">to_a</span>
 <span class="c1"># [</span>
@@ -145,9 +151,9 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="c1"># ]</span>
 </code></pre>
 
-<p>Mappers convert tuples into the form required by the domain.</p>
+<p>Mappers allow to convert tuples to the form, required by the domain.</p>
 
-<p>To create a mapper, first define the mapper for a relation.</p>
+<p>At first define the mapper for a relation.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserAsEntity</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:entity</span> <span class="c1"># the registered name of the mapper</span>
   <span class="n">relation</span> <span class="ss">:users</span>     <span class="c1"># the name of the relation the mapper is applicable to</span>
@@ -155,7 +161,7 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="k">end</span>
 </code></pre>
 
-<p>After <a href="setup">finalization</a> apply the mapper on the dataset. Here we call <code>map_with</code> to apply the <code>UserAsEntity</code> mapper (registered as <code>entity</code>) on the dataset:</p>
+<p>After <a href="setup">finalization</a> apply the mapper:</p>
 <pre class="highlight ruby"><code><span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="c1"># [</span>
 <span class="c1">#   &lt;User @id=1, @name='jane', @email='jane@doo.org'&gt;,</span>
@@ -166,7 +172,7 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="n">users</span><span class="p">.</span><span class="nf">map_with</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">to_a</span>
 </code></pre>
 
-<p>Mappers can also be used to convert tuples that are returned from ROM <a href="commands">commands</a>.</p>
+<p>Mappers can also convert tuples returned by ROM commands.</p>
 <pre class="highlight ruby"><code><span class="n">create_user</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">create</span>
 <span class="n">create_user</span><span class="p">.</span><span class="nf">call</span> <span class="ss">id: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'jack'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'jack@doo.org'</span>
 <span class="c1"># { id: 3, name: 'jack', email: 'jack@doo.org' }</span>
@@ -177,7 +183,7 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 
 <h2 id="mapping-strategies">Mapping Strategies</h2>
 
-<p>Another example which comes up frequently is to map flat data into a nested model.</p>
+<p>Consider another example, where the relation contains flat data, that should be mapped into nested models.</p>
 <pre class="highlight ruby"><code><span class="n">users_with_roles</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">with_roles</span>
 <span class="n">users_with_roles</span><span class="p">.</span><span class="nf">to_a</span>
 <span class="c1"># [</span>
@@ -187,7 +193,7 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="c1"># ]</span>
 </code></pre>
 
-<p>Suppose we need to convert it to list of domain users who each have many roles. There are two main strategies for doing this.</p>
+<p>Suppose we need to adopt it to list of domain users who each have many roles. There are two main strategies for doing this.</p>
 
 <h3 id="1-lean-interface-to-domain">1. Lean Interface to Domain</h3>
 
@@ -195,8 +201,6 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 
 <p>In this case the datastore is completely decoupled from the domain layer. It knows nothing about entities and their constructors.
 The mapper is responsible for transforming source tuples to entity-friendly hashes.</p>
-
-<p>In this example we will use the <code>group</code> syntax to group user roles.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserAsHash</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:hash</span>
   <span class="n">relation</span> <span class="ss">:users</span>
@@ -257,17 +261,17 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 </code></pre>
 
 <p>Entity classes can be flat objects or aggregates defined separately from each other (depending on what you need).</p>
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Role</span>
-  <span class="kp">include</span> <span class="no">Virtus</span><span class="p">.</span><span class="nf">model</span>
-
-  <span class="n">attribute</span> <span class="ss">:title</span>
-<span class="k">end</span>
-
-<span class="k">class</span> <span class="nc">User</span>
+<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">User</span>
   <span class="kp">include</span> <span class="no">Virtus</span><span class="p">.</span><span class="nf">model</span>
 
   <span class="n">attribute</span> <span class="ss">:name</span>
   <span class="n">attribute</span> <span class="ss">:roles</span> <span class="c1"># no coersion is needed here, this work is done by the mapper</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Role</span>
+  <span class="kp">include</span> <span class="no">Virtus</span><span class="p">.</span><span class="nf">model</span>
+
+  <span class="n">attribute</span> <span class="ss">:title</span>
 <span class="k">end</span>
 </code></pre>
 
@@ -314,7 +318,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="k">end</span>
 </code></pre>
 
-<p>As shown above, when defining a new mapper you need to set the registered name of the mapper and the name of the relation it is applicable to. The registered name of the mapper should be unique in a scope of the relation, so the following declarations are correct and do not conflict.</p>
+<p>As shown above, when defining a new mapper you need to set the registered name of the mapper and the name of the relation it is applicable to. The registered name of the mapper should be unique in a scope of the relation, so the following declarations are correct.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserEntityMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:entity</span>
   <span class="n">relation</span> <span class="ss">:users</span>
@@ -332,38 +336,23 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 
 <h3 id="data-transformations">Data Transformations</h3>
 
-<p>ROM mapper provides a rich DSL with a number of methods to transform the source into output domain objects. It supports:</p>
+<p>ROM mapper provides rich DSL with whole bunch of methods to transform source tuples into output hashes/models. It supports:</p>
 
 <ul>
-<li><a href="mappers/filtering">Filtering Attributes</a></li>
-<li><a href="mappers/renaming">Renaming Attributes</a></li>
-<li><a href="mappers/wrapping">Wrapping Attributes</a></li>
-<li><a href="mappers/grouping">Grouping Tuples</a></li>
-<li><a href="mappers/folding">Folding Tuples</a></li>
-<li><a href="mappers/combining">Combining Tuples from Several Relations</a></li>
-<li><a href="mappers/models">Mapping Tuples to Models</a></li>
-<li><a href="mappers/embedded">Embedded Attributes</a></li>
+<li>Filtering Attributes</li>
+<li>Renaming Attributes</li>
+<li>Wrapping/Unwrapping Tuples</li>
+<li>Grouping/Ungrouping Tuples</li>
+<li>Folding/Unfolding Tuples</li>
+<li>Combining Tuples from Several Relations</li>
+<li>Mapping Tuples to Models</li>
 </ul>
 
-<p>Below are some examples of the available transformations. For more details follow the corresponding link.</p>
+<p>Below is a list of examples for available transformations. For more details follow a corresponding link.</p>
 
-<h4 id="a-href-mappers-filtering-a"><a href="mappers/filtering">Filtering Attributes</a></h4>
-
-<p>You can either blacklist attributes:</p>
+<p><a href="mappers/filtering">Filtering Attributes</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
-  <span class="n">exclude</span> <span class="ss">:password</span>
-<span class="k">end</span>
-
-<span class="n">users</span><span class="p">.</span><span class="nf">first</span>
-<span class="c1"># { id: 1, name: 'Joe', password: '123456' }</span>
-
-<span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">first</span>
-<span class="c1"># { id: 1, name: 'Joe' }</span>
-</code></pre>
-
-<p>&hellip;or whitelist them:</p>
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
-  <span class="n">reject_keys</span> <span class="kp">true</span> <span class="c1"># Any keys not declared will be rejected</span>
+  <span class="n">reject_keys</span> <span class="kp">true</span>
   <span class="n">attribute</span> <span class="ss">:id</span>
   <span class="n">attribute</span> <span class="ss">:name</span>
 <span class="k">end</span>
@@ -375,9 +364,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe' }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-renaming-a"><a href="mappers/renaming">Renaming Attributes</a></h4>
-
-<p>Attributes can be renamed:</p>
+<p><a href="mappers/renaming">Renaming Attributes</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">symbolize_keys</span>
   <span class="n">attribute</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">from: :email</span>
@@ -390,9 +377,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', login: 'joe@example.com' }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-wrapping-a"><a href="mappers/wrapping">Wrapping Attributes</a></h4>
-
-<p>Attributes can be nested inside a new object.</p>
+<p><a href="mappers/wrapping">Wrapping Attributes</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">wrap</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -407,9 +392,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', contacts: { email: 'joe@example.com', skype: 'joe' } }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-unwrapping-a"><a href="mappers/unwrapping">Unwrapping Tuples</a></h4>
-
-<p>Attributes can be pulled out of a nested object:</p>
+<p><a href="mappers/unwrapping">Unwrapping Tuples</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">unwrap</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -423,9 +406,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', email: 'joe@example.com', contacts: { skype:'joe' } }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-grouping-a"><a href="mappers/grouping">Grouping Tuples</a></h4>
-
-<p>Objects can be grouped on certain attributes:</p>
+<p><a href="mappers/grouping">Grouping Tuples</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">group</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -449,9 +430,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-ungrouping-a"><a href="mappers/ungrouping">Ungrouping Attributes</a></h4>
-
-<p>Objects can be ungrouped resulting in a flattened structure:</p>
+<p><a href="mappers/ungrouping">Ungrouping Attributes</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">ungroup</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -475,7 +454,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-folding-a"><a href="mappers/folding">Folding Tuples</a></h4>
+<p><a href="mappers/folding">Folding Tuples</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">fold</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -492,9 +471,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [{ id: 1, name: 'Joe', contacts: ['joe@example.com', 'joe@doe.org'] }]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-unfolding-a"><a href="mappers/unfolding">Unfolding Attributes</a></h4>
-
-<p>Objects can be unfolded, resulting in a flattened structure:</p>
+<p><a href="mappers/unfolding">Unfolding Attributes</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">unfold</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">from: :contacts</span>
 <span class="k">end</span>
@@ -509,7 +486,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-combining-a"><a href="mappers/combining">Combining Tuples from Several Relations</a></h4>
+<p><a href="mappers/combining">Combining Tuples from Several Relations</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Roles</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">for_users</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
     <span class="n">restrict</span><span class="p">(</span><span class="ss">user_id: </span><span class="n">users</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="p">})</span>
@@ -535,9 +512,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [{ id: 1, name: 'Joe', roles: [{ name: 'admin' }, { name: 'manager' }] }]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-models-a"><a href="mappers/models">Mapping Tuples to Models</a></h4>
-
-<p>The result of a mapping can be a model object, rather than a simple hash or array:</p>
+<p><a href="mappers/models">Mapping Tuples to Models</a></p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapepr</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">model</span> <span class="no">User</span>
 <span class="k">end</span>
@@ -549,120 +524,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [#&lt;User @id=1, @name='Joe'&gt;]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-embedded-a"><a href="mappers/embedded">Embedded Attributes</a></h4>
-
-<p>Suppose we have a source with a deeply nested data to transform:</p>
-<pre class="highlight ruby"><code><span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">evn</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span>
-<span class="n">users</span><span class="p">.</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   list_id: 1,</span>
-<span class="c1">#   list_tasks: [</span>
-<span class="c1">#     { user: 'Jacob', task_id: 1, task_title: 'be nice'    },</span>
-<span class="c1">#     { user: 'Jacob', task_id: 2, task_title: 'sleep well' }</span>
-<span class="c1">#   ]</span>
-<span class="c1"># }</span>
-</code></pre>
-
-<p>With the help of <code>embedded</code> we could apply transformations to the necessary level of nesting:</p>
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapepr</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
-  <span class="n">relation</span> <span class="ss">:users</span>
-  <span class="n">register_as</span> <span class="ss">:users</span>
-
-  <span class="n">embedded</span> <span class="ss">:list_tasks</span><span class="p">,</span> <span class="ss">type: :array</span> <span class="k">do</span>
-    <span class="n">group</span> <span class="ss">:tasks</span><span class="p">,</span> <span class="ss">prefix: </span><span class="s1">'task'</span> <span class="k">do</span>
-      <span class="n">attribute</span> <span class="ss">:id</span>
-      <span class="n">attribute</span> <span class="ss">:title</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   list_id: 1,</span>
-<span class="c1">#   list_tasks: [</span>
-<span class="c1">#     {</span>
-<span class="c1">#       user: 'Jacob', tasks: [</span>
-<span class="c1">#         { id: 1, title: 'be nice' },</span>
-<span class="c1">#         { id: 2, title: 'sleep well' }</span>
-<span class="c1">#       ]</span>
-<span class="c1">#     }</span>
-<span class="c1">#   ]</span>
-<span class="c1"># }</span>
-</code></pre>
-
-<p>See <a href="embedding.md">Embedding Transformations</a> for further details.</p>
-
-<h3 id="applying-transformations-step-by-step">Applying Transformations Step by Step</h3>
-
-<p>Various transformations can be applied by mappers step-by-step. This allows a mapper to take deeply nested data from source, rearrange them and provide any required output.</p>
-
-<p>Suppose the relation returns the following data:</p>
-<pre class="highlight ruby"><code><span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">evn</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span>
-<span class="n">users</span><span class="p">.</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   list_id: 1,</span>
-<span class="c1">#   list_tasks: [</span>
-<span class="c1">#     { user: 'Jacob', task_id: 1, task_title: 'be nice'    },</span>
-<span class="c1">#     { user: 'Jacob', task_id: 2, task_title: 'sleep well' }</span>
-<span class="c1">#   ]</span>
-<span class="c1"># }</span>
-</code></pre>
-
-<p>With the sequence of several <code>step</code>-s we can perform a series of complex tranformations inside one mapper:</p>
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapepr</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
-  <span class="n">relation</span> <span class="ss">:users</span>
-  <span class="n">register_as</span> <span class="ss">:users</span>
-
-  <span class="n">step</span> <span class="k">do</span>
-    <span class="n">prefix</span> <span class="s1">'list'</span>
-    <span class="n">attribute</span> <span class="ss">:id</span>
-    <span class="n">unfold</span> <span class="ss">:tasks</span>
-  <span class="k">end</span>
-
-  <span class="n">step</span> <span class="k">do</span>
-    <span class="n">unwrap</span> <span class="ss">:tasks</span> <span class="k">do</span>
-      <span class="n">attribute</span> <span class="ss">:task_id</span>
-      <span class="n">attribute</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">from: :user</span>
-      <span class="n">attribute</span> <span class="ss">:task_title</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-
-  <span class="n">step</span> <span class="k">do</span>
-    <span class="n">group</span> <span class="ss">:tasks</span> <span class="k">do</span>
-      <span class="n">prefix</span> <span class="s1">'task'</span>
-      <span class="n">attribute</span> <span class="ss">:id</span>
-      <span class="n">attribute</span> <span class="ss">:title</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-
-  <span class="n">step</span> <span class="k">do</span>
-    <span class="n">wrap</span> <span class="ss">:user</span> <span class="k">do</span>
-      <span class="n">attribute</span> <span class="ss">:name</span>
-      <span class="n">attribute</span> <span class="ss">:tasks</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-
-<p>The mapper will provide the output as following:</p>
-<pre class="highlight ruby"><code><span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   id: 1,</span>
-<span class="c1">#   user: {</span>
-<span class="c1">#     name: 'Jacob',</span>
-<span class="c1">#     tasks: [</span>
-<span class="c1">#       { id: 1, title: 'be nice'    },</span>
-<span class="c1">#       { id: 2, title: 'sleep well' }</span>
-<span class="c1">#     ]</span>
-<span class="c1">#   }</span>
-<span class="c1"># }</span>
-</code></pre>
-
-<p>Look at the <a href="mappers/sequencing">corresponding subsection</a> for further details.</p>
-
-<h2 id="using-and-reusing-mappers">Using and Reusing Mappers</h2>
-
-<h3 id="applying-mappers-to-relations">Applying Mappers to Relations</h3>
+<h3 id="applying-a-mapper">Applying a Mapper</h3>
 
 <p>After finalizing ROM, apply the mapper to a relation with the <code>as</code> method, or its alias <code>map_with</code>, using the registered name of the mapper:</p>
 <pre class="highlight ruby"><code><span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span> <span class="c1"># returns lazy relation</span>
@@ -681,7 +543,9 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">with_tasks</span><span class="p">.</span><span class="nf">with_tags</span>
 </code></pre>
 
-<h3 id="chaining-mappers-to-pipeline">Chaining Mappers to Pipeline</h3>
+<h2 id="reusing-mappers">Reusing Mappers</h2>
+
+<h3 id="the-data-pipeline">The Data Pipeline</h3>
 
 <p>Mappers can be applied to source data one-by-one. This is especially useful when you map data from various sources with different data structure. With the help of chaining you can adopt sources to common interface with adapter-specific mappers, and then apply the adapter-agnostic mapper to their outputs.</p>
 <pre class="highlight plaintext"><code>db adapter -&gt;
@@ -722,7 +586,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 
 <h3 id="subclassing-mappers">Subclassing Mappers</h3>
 
-<p>To keep your code <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>, mappers can be <em>subclassed</em> from existing mappers to customize it for slightly different output.</p>
+<p>To DRY the code you can <em>subclass</em> a new mapper from existing one and customize it for slightly different output.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">FirstMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:first</span>
   <span class="n">relation</span> <span class="ss">:users</span>
@@ -781,7 +645,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 
 <h2 id="custom-mappers">Custom Mappers</h2>
 
-<p>ROM allows custom coercer objects to be registered as mappers. Any object, that responds to <code>#call</code> method with one argument can be registered as a ROM mapper.</p>
+<p>ROM allows to register custom coercer object as a mapper. Every object, that responds to <code>#call</code> method with one argument can be registered as the ROM mapper.</p>
 
 <p>To register an arbitrary mapper, use the following syntax:</p>
 <pre class="highlight ruby"><code><span class="n">arbitrary_mapper</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="n">users</span> <span class="p">{</span> <span class="n">users</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">tuple</span><span class="o">|</span> <span class="n">tuple</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="p">}</span> <span class="p">}</span>

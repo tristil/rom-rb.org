@@ -343,11 +343,11 @@ bin/rails console
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">active</span>
-    <span class="n">where</span><span class="p">(</span><span class="ss">is_completed: </span><span class="kp">false</span><span class="p">)</span>
+    <span class="n">where</span><span class="p">(</span><span class="ss">is_completed: </span><span class="kp">true</span><span class="p">)</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">completed</span>
-    <span class="n">where</span><span class="p">(</span><span class="ss">is_completed: </span><span class="kp">true</span><span class="p">)</span>
+    <span class="n">where</span><span class="p">(</span><span class="ss">is_completed: </span><span class="kp">false</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
@@ -592,7 +592,7 @@ to define the <code>Task</code> class because they come out-of-the-box with the 
 <p>Notice that we also need to slot in references to the model and relation here, in order to connect this form to our existing ROM objects.</p>
 
 <p>In order to select and operate on individual objects, we also need to add a couple methods that access tasks by their ID:</p>
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">TasksRelation</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:sql</span><span class="p">]</span>
+<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Tasks</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:sql</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
     <span class="n">where</span><span class="p">(</span><span class="ss">id: </span><span class="nb">id</span><span class="p">)</span>
   <span class="k">end</span>

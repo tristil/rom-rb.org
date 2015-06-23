@@ -84,7 +84,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-2573270-5', 'auto');
-ga('send', 'pageview');</script></head><body class="guides guides_basics guides_basics_mappers guides_basics_mappers_wrapping guides_basics_mappers_wrapping_index"><div class="page-wrapper"><header><nav class="navbar navbar-default navbar-static-top"><div class="navbar-inner"><div class="container"><a class="navbar-brand" href="/">Ruby Object Mapper</a><ul class="nav navbar-nav"><li class=""><a class="" href="/introduction">Introduction</a></li><li class=""><a class="" href="/guides">Guides</a></li><li class=""><a class="" href="/tutorials">Tutorials</a></li><li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">API Reference <span class='caret'/></a><ul class="dropdown-menu" role="menu"><li><a href="http://www.rubydoc.info/gems/rom">rom</a></li><li><a href="http://www.rubydoc.info/gems/rom-sql">rom-sql</a></li><li><a href="http://www.rubydoc.info/gems/rom-yesql">rom-yesql</a></li><li><a href="http://www.rubydoc.info/gems/rom-influxdb">rom-influxdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-event_store">rom-event_store</a></li><li><a href="http://www.rubydoc.info/gems/rom-rethinkdb">rom-rethinkdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-mongo">rom-mongo</a></li><li><a href="http://www.rubydoc.info/gems/rom-redis">rom-redis</a></li><li><a href="http://www.rubydoc.info/gems/rom-csv">rom-csv</a></li><li><a href="http://www.rubydoc.info/gems/rom-yaml">rom-yaml</a></li><li><a href="http://www.rubydoc.info/gems/rom-dm">rom-dm</a></li><li><a href="http://www.rubydoc.info/gems/rom-lotus">rom-lotus</a></li><li><a href="http://www.rubydoc.info/gems/rom-rails">rom-rails</a></li><li><a href="http://www.rubydoc.info/gems/rom-roda">rom-roda</a></li></ul></li><li class=""><a class="" href="/blog">Blog</a></li><li class=""><a class="" href="/contribute">Contribute</a></li><li class=""><a class="" href="/status">Status</a></li></ul></div></div></nav></header><div class="container"><div class="content"><div class="row"><div class="col-md-3"><ul class="nav nav-pills nav-stacked"><li class="nav-heading"><a class="nav-heading" href="/guides/basics/setup">Setup</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/relations">Relations</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/mappers">Mappers</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/commands">Commands</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/adapters">Adapters</a></li><li class=""><a class="" href="/guides/adapters/sql">SQL</a></li></ul></div><div class="col-md-9"><div class="page-article"><h1 id="wrapping-attributes">Wrapping Attributes</h1>
+ga('send', 'pageview');</script></head><body class="guides guides_basics guides_basics_mappers guides_basics_mappers_wrapping guides_basics_mappers_wrapping_index"><div class="page-wrapper"><header><nav class="navbar navbar-default navbar-static-top"><div class="navbar-inner"><div class="container"><a class="navbar-brand" href="/">Ruby Object Mapper</a><ul class="nav navbar-nav"><li class=""><a class="" href="/introduction">Introduction</a></li><li class=""><a class="" href="/guides">Guides</a></li><li class=""><a class="" href="/tutorials">Tutorials</a></li><li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">API Reference <span class='caret'/></a><ul class="dropdown-menu" role="menu"><li><a href="http://www.rubydoc.info/gems/rom">rom</a></li><li><a href="http://www.rubydoc.info/gems/rom-sql">rom-sql</a></li><li><a href="http://www.rubydoc.info/gems/rom-yesql">rom-yesql</a></li><li><a href="http://www.rubydoc.info/gems/rom-influxdb">rom-influxdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-event_store">rom-event_store</a></li><li><a href="http://www.rubydoc.info/gems/rom-rethinkdb">rom-rethinkdb</a></li><li><a href="http://www.rubydoc.info/gems/rom-mongo">rom-mongo</a></li><li><a href="http://www.rubydoc.info/gems/rom-redis">rom-redis</a></li><li><a href="http://www.rubydoc.info/gems/rom-csv">rom-csv</a></li><li><a href="http://www.rubydoc.info/gems/rom-yaml">rom-yaml</a></li><li><a href="http://www.rubydoc.info/gems/rom-dm">rom-dm</a></li><li><a href="http://www.rubydoc.info/gems/rom-lotus">rom-lotus</a></li><li><a href="http://www.rubydoc.info/gems/rom-rails">rom-rails</a></li><li><a href="http://www.rubydoc.info/gems/rom-roda">rom-roda</a></li></ul></li><li class=""><a class="" href="/blog">Blog</a></li><li class=""><a class="" href="/contribute">Contribute</a></li><li class=""><a class="" href="/status">Status</a></li></ul></div></div></nav></header><div class="container"><div class="content"><div class="row"><div class="col-md-3"><ul class="nav nav-pills nav-stacked"><li class="nav-heading"><a class="nav-heading" href="/guides/basics/setup">Setup</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/relations">Relations</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/mappers">Mappers</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/basics/commands">Commands</a></li><li class="nav-heading"><a class="nav-heading" href="/guides/adapters">Adapters</a></li><li class=""><a class="" href="/guides/adapters/how-to">How-to</a></li><li class=""><a class="" href="/guides/adapters/sql">SQL</a></li></ul></div><div class="col-md-9"><div class="page-article"><h1 id="wrapping-attributes">Wrapping Attributes</h1>
 
 <p>With the method <a href="http://www.rubydoc.info/gems/rom/ROM/Mapper/AttributeDSL:wrap">wrap</a> you can take some attributes from a tuple and wrap them to either a nested tuple, or a model.</p>
 
@@ -94,8 +94,7 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <li><a href="#renaming-attributes">Renaming Attributes</a></li>
 <li><a href="#wrapping-to-model">Wrapping to Model</a></li>
 <li><a href="#applying-another-mapper">Applying another Mapper</a></li>
-<li><a href="#wrapping-embedded-attributes">Wrapping Embedded Attributes</a></li>
-<li><a href="#nested-wrapping">Nested Wrapping</a></li>
+<li><a href="#nesting-wrappers">Nesting Wrappers</a></li>
 <li><a href="#edge-cases">Edge Cases</a></li>
 </ul>
 
@@ -140,6 +139,12 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
     <span class="n">attribute</span> <span class="ss">:contact_skype</span>
   <span class="k">end</span>
 <span class="k">end</span>
+
+<span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:wrapped_users</span><span class="p">).</span><span class="nf">first</span>
+<span class="c1"># {</span>
+<span class="c1">#   id: 1, name: "Joe",</span>
+<span class="c1">#   contact: { contact_email: "joe@example.com", contact_skype: "joe" }</span>
+<span class="c1"># }</span>
 </code></pre>
 
 <h2 id="removing-prefixes">Removing Prefixes</h2>
@@ -286,9 +291,9 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="c1"># { id: 1, name: "Joe", contacts: { email: "joe@doe.org", skype: "joe" } }</span>
 </code></pre>
 
-<h2 id="wrapping-embedded-attributes">Wrapping Embedded Attributes</h2>
+<h3 id="edge-cases">Edge Cases</h3>
 
-<p>With the help of <a href="embedding">the <code>embedded</code> method</a>, attributes can be wrapped from any level of nested data.</p>
+<p>Don&rsquo;t define attributes inline along with the <code>:mapper</code> option! In this case the mapper won&rsquo;t be applied:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">ContactMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:contact</span>
   <span class="n">relation</span> <span class="ss">:users</span>
@@ -301,40 +306,38 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
   <span class="n">register_as</span> <span class="ss">:hash</span>
   <span class="n">relation</span> <span class="ss">:users</span>
 
-  <span class="n">embedded</span> <span class="ss">:contacts</span><span class="p">,</span> <span class="ss">type: :hash</span> <span class="k">do</span>
-    <span class="n">wrap</span> <span class="ss">:emails</span> <span class="k">do</span>
-      <span class="n">attribute</span> <span class="ss">:home</span><span class="p">,</span> <span class="ss">from: :home_email</span>
-      <span class="n">attribute</span> <span class="ss">:job</span><span class="p">,</span>  <span class="ss">from: :job_email</span>
-    <span class="k">end</span>
+  <span class="n">wrap</span> <span class="ss">contacts: </span><span class="p">[</span><span class="ss">:name</span><span class="p">],</span> <span class="ss">mapper: </span><span class="no">ContactMapper</span>
+<span class="k">end</span>
+
+<span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">first</span>
+<span class="c1"># { id: 1, contacts: { name: "Joe" }, contact_email: "joe@doe.org", contact_skype: "joe" }</span>
+</code></pre>
+
+<p>Don&rsquo;t use block along with the <code>:mapper</code> option! All definitions from inside the block will be ignored:</p>
+<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">ContactMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
+  <span class="n">register_as</span> <span class="ss">:contact</span>
+  <span class="n">relation</span> <span class="ss">:users</span>
+
+  <span class="n">attribute</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">from: :contact_email</span>
+  <span class="n">attribute</span> <span class="ss">:skype</span><span class="p">,</span> <span class="ss">from: :contact_skype</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">UserMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
+  <span class="n">register_as</span> <span class="ss">:hash</span>
+  <span class="n">relation</span> <span class="ss">:users</span>
+
+  <span class="n">wrap</span> <span class="ss">:contacts</span><span class="p">,</span> <span class="ss">mapper: </span><span class="no">ContactMapper</span> <span class="k">do</span>
+    <span class="n">attribute</span> <span class="ss">:name</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">relations</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span>
-<span class="n">users</span><span class="p">.</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   id: 1, name: "Joe",</span>
-<span class="c1">#   contacts: {</span>
-<span class="c1">#     home_email: "joe@home.org",</span>
-<span class="c1">#     job_email: "joe@job.com",</span>
-<span class="c1">#     skype: "joe"</span>
-<span class="c1">#   }</span>
-<span class="c1"># }</span>
-
 <span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">first</span>
-<span class="c1"># {</span>
-<span class="c1">#   id: 1, name: "Joe",</span>
-<span class="c1">#   contacts: {</span>
-<span class="c1">#     emails: { home: "joe@home.org", job: "joe@job.com" },</span>
-<span class="c1">#     skype: "joe"</span>
-<span class="c1">#   }</span>
-<span class="c1"># }</span>
+<span class="c1"># { id: 1, name: "Joe", contacts: { email: "joe@doe.org", skype: "joe" } }</span>
 </code></pre>
 
-<h2 id="nested-wrapping">Nested Wrapping</h2>
+<h2 id="nesting-wrappers">Nesting Wrappers</h2>
 
-<p>Wrappers can be nested deeply. This allows to compact the sequence of transformation steps by doing several wrappings at once.</p>
-
-<p>You can define a corresponding model for any level of nesting:</p>
+<p>Wrappers can be nested deeply. You can define a corresponding model for any level of nesting:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">register_as</span> <span class="ss">:entity</span>
   <span class="n">relation</span> <span class="ss">:users</span>
@@ -363,8 +366,6 @@ ga('send', 'pageview');</script></head><body class="guides guides_basics guides_
 <span class="c1">#   &gt;</span>
 <span class="c1"># }</span>
 </code></pre>
-
-<p>Notice in the example above we mentioned every wrapped attribute (<code>:address</code> and <code>:user</code>) only once, while they were wrapped at two levels. You haven&rsquo;t to list attributes at any level of wrapping, only at the deepest one.</p>
 
 <h2 id="edge-cases">Edge Cases</h2>
 

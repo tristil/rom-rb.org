@@ -133,7 +133,7 @@ you can define the components you want to use in your application.</p>
 <p>In example we can define a relation class for our in-memory gateway:</p>
 <pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Memory</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
+<span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
 <span class="k">end</span>
 
 <span class="no">ROM</span><span class="p">.</span><span class="nf">finalize</span>
@@ -175,7 +175,7 @@ stores finalized environment in a globally accessible <code>ROM.env</code>.</p>
 calling <code>ROM.finalize</code>:</p>
 <pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Memory</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
+<span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
 <span class="k">end</span>
 
 <span class="k">class</span> <span class="nc">CreateUser</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Commands</span><span class="o">::</span><span class="no">Create</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>

@@ -396,15 +396,15 @@ sets up ROM.</p>
 
 <span class="n">gateway</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">finalize</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">gateways</span><span class="p">[</span><span class="ss">:default</span><span class="p">]</span>
 
-<span class="n">gateway</span><span class="p">.</span><span class="nf">migration</span> <span class="k">do</span>
+<span class="n">migration</span> <span class="o">=</span> <span class="n">gateway</span><span class="p">.</span><span class="nf">migration</span> <span class="k">do</span>
   <span class="n">change</span> <span class="k">do</span>
     <span class="n">create_table</span> <span class="ss">:users</span> <span class="k">do</span>
       <span class="n">primary_key</span> <span class="ss">:id</span>
-      <span class="n">column</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">type: </span><span class="no">String</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span>
+      <span class="n">column</span> <span class="ss">:name</span><span class="p">,</span> <span class="no">String</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="n">gateway</span><span class="p">.</span><span class="nf">run_migrations</span>
+<span class="n">migration</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="n">gateway</span><span class="p">.</span><span class="nf">connection</span><span class="p">,</span> <span class="ss">:up</span><span class="p">)</span>
 </code></pre>
 <div class="page-article-edit"><hr /><div class="share pull-left"></div><p class="pull-right">Edit this article on <a href="https://github.com/rom-rb/rom-rb.org/tree/master/source/doc-pages.md">GitHub</a></p></div></div></div></div></div></div></div><footer><div class="container"><div class="social"><div class="github"><iframe allowtransparency="true" frameborder="0" height="20" scrolling="0" src="http://ghbtns.com/github-btn.html?user=rom-rb&repo=rom&type=watch&count=true" width="110"></iframe></div><div class="twitter"><a class="twitter-follow-button" data-show-count="true" data-show-screen-name="false" href="https://twitter.com/rom_rb">Follow</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div></div><div class="muted copyright">Ruby Object Mapper &copy; 2014-2015</div></div></footer></body></html>

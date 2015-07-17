@@ -355,7 +355,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 
 <p>Below are some examples of the available transformations. For more details follow the corresponding link.</p>
 
-<h4 id="a-href-mappers-filtering-a"><a href="mappers/filtering">Filtering Attributes</a></h4>
+<h4 id="filtering-attributes"><a href="mappers/filtering">Filtering Attributes</a></h4>
 
 <p>You can either blacklist attributes:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -383,7 +383,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe' }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-renaming-a"><a href="mappers/renaming">Renaming Attributes</a></h4>
+<h4 id="renaming-attributes"><a href="mappers/renaming">Renaming Attributes</a></h4>
 
 <p>Attributes can be renamed:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -398,7 +398,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', login: 'joe@example.com' }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-wrapping-a"><a href="mappers/wrapping">Wrapping Attributes</a></h4>
+<h4 id="wrapping-attributes"><a href="mappers/wrapping">Wrapping Attributes</a></h4>
 
 <p>Attributes can be nested inside a new object.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -415,7 +415,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', contacts: { email: 'joe@example.com', skype: 'joe' } }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-unwrapping-a"><a href="mappers/unwrapping">Unwrapping Tuples</a></h4>
+<h4 id="unwrapping-tuples"><a href="mappers/unwrapping">Unwrapping Tuples</a></h4>
 
 <p>Attributes can be pulled out of a nested object:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -431,7 +431,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># { id: 1, name: 'Joe', email: 'joe@example.com', contacts: { skype:'joe' } }</span>
 </code></pre>
 
-<h4 id="a-href-mappers-grouping-a"><a href="mappers/grouping">Grouping Tuples</a></h4>
+<h4 id="grouping-tuples"><a href="mappers/grouping">Grouping Tuples</a></h4>
 
 <p>Objects can be grouped on certain attributes:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -457,7 +457,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-ungrouping-a"><a href="mappers/ungrouping">Ungrouping Attributes</a></h4>
+<h4 id="ungrouping-attributes"><a href="mappers/ungrouping">Ungrouping Attributes</a></h4>
 
 <p>Objects can be ungrouped resulting in a flattened structure:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -483,7 +483,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-folding-a"><a href="mappers/folding">Folding Tuples</a></h4>
+<h4 id="folding-tuples"><a href="mappers/folding">Folding Tuples</a></h4>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
   <span class="n">fold</span> <span class="ss">:contacts</span> <span class="k">do</span>
     <span class="n">attribute</span> <span class="ss">:email</span>
@@ -500,7 +500,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [{ id: 1, name: 'Joe', contacts: ['joe@example.com', 'joe@doe.org'] }]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-unfolding-a"><a href="mappers/unfolding">Unfolding Attributes</a></h4>
+<h4 id="unfolding-attributes"><a href="mappers/unfolding">Unfolding Attributes</a></h4>
 
 <p>Objects can be unfolded, resulting in a flattened structure:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UsersMapper</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -517,7 +517,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># ]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-combining-a"><a href="mappers/combining">Combining Tuples from Several Relations</a></h4>
+<h4 id="combining-tuples-from-several-relations"><a href="mappers/combining">Combining Tuples from Several Relations</a></h4>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Roles</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">for_users</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
     <span class="n">restrict</span><span class="p">(</span><span class="ss">user_id: </span><span class="n">users</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="p">})</span>
@@ -543,7 +543,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [{ id: 1, name: 'Joe', roles: [{ name: 'admin' }, { name: 'manager' }] }]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-models-a"><a href="mappers/models">Mapping Tuples to Models</a></h4>
+<h4 id="mapping-tuples-to-models"><a href="mappers/models">Mapping Tuples to Models</a></h4>
 
 <p>The result of a mapping can be a model object, rather than a simple hash or array:</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">UserMapepr</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Mapper</span>
@@ -557,7 +557,7 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 <span class="c1"># [#&lt;User @id=1, @name='Joe'&gt;]</span>
 </code></pre>
 
-<h4 id="a-href-mappers-embedded-a"><a href="mappers/embedded">Embedded Attributes</a></h4>
+<h4 id="embedded-attributes"><a href="mappers/embedded">Embedded Attributes</a></h4>
 
 <p>Suppose we have a source with a deeply nested data to transform:</p>
 <pre class="highlight ruby"><code><span class="n">users</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">evn</span><span class="p">.</span><span class="nf">relation</span><span class="p">(</span><span class="ss">:users</span><span class="p">)</span>

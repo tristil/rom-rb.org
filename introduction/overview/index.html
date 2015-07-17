@@ -101,24 +101,24 @@ to persist changes.</p>
 <p>The core of ROM is divided up into four high-level concerns as you can see
 above:</p>
 
-<h3 id="a-href-introduction-adapters-adapters-a"><a href="/introduction/adapters"><strong>Adapters</strong></a></h3>
+<h3 id="adapters"><a href="/introduction/adapters"><strong>Adapters</strong></a></h3>
 
 <p>ROM uses adapters to connect to different data sources (a database, a csv file -
 it doesn&rsquo;t matter) and exposes a native CRUD interface to its relations.</p>
 
-<h3 id="a-href-introduction-relations-relations-a"><a href="/introduction/relations"><strong>Relations</strong></a></h3>
+<h3 id="relations"><a href="/introduction/relations"><strong>Relations</strong></a></h3>
 
 <p>A relation is defined as a set of tuples identified by unique pairs of attributes
 and their values. In ROM it is an object that responds to <code>#each</code> which yields hashes. It
 is backed by <mark>a dataset object</mark> provided by the adapter.</p>
 
-<h3 id="a-href-introduction-mappers-mappers-a"><a href="/introduction/mappers"><strong>Mappers</strong></a></h3>
+<h3 id="mappers"><a href="/introduction/mappers"><strong>Mappers</strong></a></h3>
 
 <p>A mapper is an object that takes a tuple and turns it into a domain object. ROM
 provides a DSL to define mappers which can be integrated with 3rd-party mapping
 libraries.</p>
 
-<h3 id="a-href-introduction-commands-commands-a"><a href="/introduction/commands"><strong>Commands</strong></a></h3>
+<h3 id="commands"><a href="/introduction/commands"><strong>Commands</strong></a></h3>
 
 <p>Commands in ROM are intended to safely modify data. Commands can be used to create,
 update and delete.</p>

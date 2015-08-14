@@ -5,7 +5,7 @@
   <id>http://rom-rb.org/blog/</id>
   <link href="http://rom-rb.org"/>
   <link href="http://rom-rb.org/feed.xml" rel="self"/>
-  <updated>2015-08-04T02:00:00+02:00</updated>
+  <updated>2015-08-04T10:00:00+10:00</updated>
   <author>
     <name>ROM team</name>
   </author>
@@ -13,8 +13,8 @@
     <title>Sustainable Development Campaign</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2015/08/04/sustainable-development-campaign"/>
     <id>http://rom-rb.org/blog/2015/08/04/sustainable-development-campaign</id>
-    <published>2015-08-04T02:00:00+02:00</published>
-    <updated>2015-08-04T02:00:00+02:00</updated>
+    <published>2015-08-04T10:00:00+10:00</published>
+    <updated>2015-08-04T10:00:00+10:00</updated>
     <author>
       <name>Piotr Solnica</name>
     </author>
@@ -78,8 +78,8 @@
     <title>ROM 0.8.0 Released</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2015/06/22/rom-0-8-0-released"/>
     <id>http://rom-rb.org/blog/2015/06/22/rom-0-8-0-released</id>
-    <published>2015-06-22T02:00:00+02:00</published>
-    <updated>2015-06-22T02:00:00+02:00</updated>
+    <published>2015-06-22T10:00:00+10:00</published>
+    <updated>2015-06-22T10:00:00+10:00</updated>
     <author>
       <name>Piotr Solnica</name>
     </author>
@@ -258,8 +258,8 @@
     <title>ROM 0.7.0 Released</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2015/05/18/rom-0-7-0-released"/>
     <id>http://rom-rb.org/blog/2015/05/18/rom-0-7-0-released</id>
-    <published>2015-05-18T02:00:00+02:00</published>
-    <updated>2015-05-18T02:00:00+02:00</updated>
+    <published>2015-05-18T10:00:00+10:00</published>
+    <updated>2015-05-18T10:00:00+10:00</updated>
     <author>
       <name>Piotr Solnica</name>
     </author>
@@ -499,8 +499,8 @@ adds new, great features on top of existing APIs.</p>
     <title>ROM 0.6.1 Released</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2015/04/04/rom-0-6-1-released"/>
     <id>http://rom-rb.org/blog/2015/04/04/rom-0-6-1-released</id>
-    <published>2015-04-04T02:00:00+02:00</published>
-    <updated>2015-04-04T02:00:00+02:00</updated>
+    <published>2015-04-04T11:00:00+11:00</published>
+    <updated>2015-04-04T11:00:00+11:00</updated>
     <author>
       <name>Mark Rickerby</name>
     </author>
@@ -658,8 +658,8 @@ adds new, great features on top of existing APIs.</p>
     <title>ROM 0.6.0 Released</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2015/03/23/rom-0-6-0-released"/>
     <id>http://rom-rb.org/blog/2015/03/23/rom-0-6-0-released</id>
-    <published>2015-03-23T01:00:00+01:00</published>
-    <updated>2015-03-23T01:00:00+01:00</updated>
+    <published>2015-03-23T11:00:00+11:00</published>
+    <updated>2015-03-23T11:00:00+11:00</updated>
     <author>
       <name>Piotr Solnica</name>
     </author>
@@ -840,8 +840,8 @@ adds new, great features on top of existing APIs.</p>
     <title>ROM 0.5.0 Released</title>
     <link rel="alternate" href="http://rom-rb.org/blog/2014/12/31/rom-0-5-0-released"/>
     <id>http://rom-rb.org/blog/2014/12/31/rom-0-5-0-released</id>
-    <published>2014-12-31T22:02:00+01:00</published>
-    <updated>2014-12-31T22:02:00+01:00</updated>
+    <published>2015-01-01T08:02:00+11:00</published>
+    <updated>2015-01-01T08:02:00+11:00</updated>
     <author>
       <name>Don Morrison</name>
     </author>

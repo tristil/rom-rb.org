@@ -144,7 +144,9 @@ and send them through the data pipeline.</p>
 
 <p>You can send a relation through any object that responds to <code>call</code> using common
 <code>&gt;&gt;</code> operator:</p>
-<pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
+<pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">use</span> <span class="ss">:auto_registration</span>
+
+<span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">by_name</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
@@ -189,7 +191,9 @@ means that you can reference a relation without providing method arguments:</p>
 
 <p>Auto-curry and data-pipeline allows very simple yet powerful feature where you
 can combine results from many relations into a single relation:</p>
-<pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
+<pre class="highlight ruby"><code><span class="no">ROM</span><span class="p">.</span><span class="nf">use</span> <span class="ss">:auto_registration</span>
+
+<span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span><span class="p">(</span><span class="ss">:memory</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Users</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Relation</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
   <span class="k">def</span> <span class="nf">by_name</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>

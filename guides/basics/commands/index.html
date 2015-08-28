@@ -194,6 +194,18 @@ just return a single tuple via <code>result</code> interface:</p>
 <span class="n">delete_user</span><span class="p">.</span><span class="nf">by_id</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">call</span>
 </code></pre>
 
+<p>The same technique is used with update commands.</p>
+<pre class="highlight ruby"><code><span class="c1"># Define update command in setup, as with DeleteUser above</span>
+<span class="k">class</span> <span class="nc">UpdateUser</span> <span class="o">&lt;</span> <span class="no">ROM</span><span class="o">::</span><span class="no">Commands</span><span class="o">::</span><span class="no">Update</span><span class="p">[</span><span class="ss">:memory</span><span class="p">]</span>
+  <span class="n">relation</span> <span class="ss">:users</span>
+  <span class="n">register_as</span> <span class="ss">:update</span>
+  <span class="n">result</span> <span class="ss">:one</span>
+<span class="k">end</span>
+
+<span class="c1"># Update user 1, setting `foo` to `"bar"`</span>
+<span class="n">rom</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">update</span><span class="p">.</span><span class="nf">by_id</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">call</span><span class="p">(</span><span class="ss">foo: </span><span class="s2">"bar"</span><span class="p">)</span>
+</code></pre>
+
 <h2 id="composing-commands">Composing Commands</h2>
 
 <p>Multiple commands can be composed into a pipeline using common <code>&gt;&gt;</code> operator:</p>

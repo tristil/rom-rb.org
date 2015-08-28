@@ -176,7 +176,9 @@ from datasets and presented in a form of tuples.</p>
 <span class="k">end</span>
 </code></pre>
 
-<p>After <a href="setup">finalization</a> apply the mapper on the dataset. Here we call <code>map_with</code> to apply the <code>UserAsEntity</code> mapper (registered as <code>entity</code>) on the dataset:</p>
+<p>After <a href="/guides/basics/setup">finalization</a> apply the mapper on the
+dataset. Here we call <code>map_with</code> to apply the <code>UserAsEntity</code> mapper
+(registered as <code>entity</code>) on the dataset:</p>
 <pre class="highlight ruby"><code><span class="n">users</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="c1"># [</span>
 <span class="c1">#   &lt;User @id=1, @name='jane', @email='jane@doo.org'&gt;,</span>
@@ -187,12 +189,18 @@ from datasets and presented in a form of tuples.</p>
 <span class="n">users</span><span class="p">.</span><span class="nf">map_with</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">to_a</span>
 </code></pre>
 
-<p>Mappers can also be used to convert tuples that are returned from ROM <a href="commands">commands</a>.</p>
-<pre class="highlight ruby"><code><span class="n">create_user</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">create</span>
-<span class="n">create_user</span><span class="p">.</span><span class="nf">call</span> <span class="ss">id: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'jack'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'jack@doo.org'</span>
+<p>Mappers can also convert tuples returned from
+<a href="/guides/basics/commands">commands</a>.</p>
+<pre class="highlight ruby"><code><span class="n">rom</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">env</span>
+
+<span class="n">rom</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">create</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span>
+  <span class="ss">id: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'jack'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'jack@doo.org'</span>
+<span class="p">)</span>
 <span class="c1"># { id: 3, name: 'jack', email: 'jack@doo.org' }</span>
 
-<span class="n">create_user</span><span class="p">.</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">create</span> <span class="ss">id: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'joffrey'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'joffrey@doo.org'</span>
+<span class="n">rom</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:users</span><span class="p">).</span><span class="nf">as</span><span class="p">(</span><span class="ss">:entity</span><span class="p">).</span><span class="nf">create</span><span class="p">(</span>
+  <span class="ss">id: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'joffrey'</span><span class="p">,</span> <span class="ss">email: </span><span class="s1">'joffrey@doo.org'</span>
+<span class="p">)</span>
 <span class="c1"># &lt;User @id=4, @name='jeff', @email='joffrey@doo.org'&gt;</span>
 </code></pre>
 
@@ -306,7 +314,10 @@ The mapper is responsible for transforming source tuples to entity-friendly hash
 
 <h3 id="defining-a-mapper">Defining a Mapper</h3>
 
-<p>Like relations, mappers to be added to ROM environment during the <a href="setup">setup process</a>. You&rsquo;re free to declare relations and mappers in any suitable order between invocations of <code>ROM.setup</code> and <code>ROM.finalize</code>.</p>
+<p>Like relations, mappers to be added to ROM environment during the
+<a href="/guides/basics/setup">setup process</a>. You&rsquo;re free to declare
+relations and mappers in any suitable order between invocations of
+<code>ROM.setup</code> and <code>ROM.finalize</code>.</p>
 <pre class="highlight ruby"><code><span class="n">setup</span> <span class="o">=</span> <span class="no">ROM</span><span class="p">.</span><span class="nf">setup</span> <span class="ss">:memory</span>
 
 <span class="c1"># This is when mappers should be registered in a sequence of loading</span>
